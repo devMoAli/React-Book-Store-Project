@@ -6,6 +6,7 @@ import AddBook from "../features/AddBook";
 import BooksView from "../features/BooksView";
 import EditBook from "../features/EditBook";
 import Footer from "../layouts/Footer";
+import Error from "../pages/Error";
 
 const Index = () => {
   return (
@@ -17,6 +18,7 @@ const Index = () => {
           <Route path="/add-book" element={<AddBook />} />
           <Route path="/show-books" element={<BooksView />} />
           <Route path="/edit-book" element={<EditBook />} />
+          <Route path="*" element={<Error />} />
         </Routes>
       </main>
       <Footer />
