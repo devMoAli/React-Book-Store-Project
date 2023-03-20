@@ -21,10 +21,10 @@ const AddBook = () => {
   };
 
   return (
-    <div className="addBook">
-      <h2 className="addBookTitle">Add Book</h2>
+    <div className="form-center" >
+      
       <form onSubmit={handleSubmit}>
-        <div className="form-field">
+        <div>
           <label htmlFor="title">Title</label>
           <input
             type="text"

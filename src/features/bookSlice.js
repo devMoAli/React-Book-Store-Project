@@ -23,11 +23,7 @@ const initialState = {
       title: "Book4",
       author: "Author4",
     },
-    {
-      id: uuidv4(),
-      title: "Book",
-      author: "Author5",
-    }
+ 
   ],
 };
 
