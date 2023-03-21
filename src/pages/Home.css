@@ -404,7 +404,7 @@ form {
   margin: 0 auto;
   top: 50%;
   left: 50%;
-  background-image: url(/public/3.jpg);
+
   background-position: center;
   object-fit: cover;
   -webkit-background-size: cover;
