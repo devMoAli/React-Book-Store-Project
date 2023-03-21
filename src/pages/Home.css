@@ -12,69 +12,126 @@ body {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
     sans-serif "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
+.navbar {
+  display: flex;
+  width: 100%;
+  height: 40px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    to right,
+    rgba(206, 206, 206, 0.3),
+    rgba(0, 0, 0, 0.3)
+  );
+}
+.container {
+  align-items: center;
+  max-width: 120rem;
+  width: 90%;
+  height: 100%;
+  margin: 0 auto;
+  display: inline-block;
+  position: absolute;
+}
 
 nav {
-  justify-content: center;
-  align-items: space-between;
-  height: 8vh;
-  width: 100%;
+  padding-top: 2px;
   display: flex;
-  padding: 1rem;
+  justify-content: space-between;
+  text-transform: uppercase;
+  font-size: 1.6rem;
 }
 a {
-  margin: 0 auto;
-  padding: 5px 0 5px 0;
-  text-align: center;
-  justify-content: center !important;
-  align-items: center;
+  display: inline-block;
+  text-decoration: none;
+  color: #eee;
+  font-size: 14px;
+  font-family: "Robote Cn", sans-serif;
 }
+nav ul {
+  display: flex;
+}
+
+nav ul li {
+  list-style: none;
+  transform: translateX(100rem);
+  animation: slideIn 0.5s forwards;
+}
+
+nav ul li:nth-child(1) {
+  animation-delay: 0s;
+}
+nav ul li:nth-child(2) {
+  animation-delay: 0.5s;
+}
+nav ul li:nth-child(3) {
+  animation-delay: 1s;
+}
+
+nav ul li a {
+  padding: 0.4rem 0;
+  margin: 0 3rem;
+  position: relative;
+  letter-spacing: 2px;
+}
+
+nav ul li a:last-child {
+  margin-right: 0;
+}
+
+nav ul li a::before,
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 0.5px;
+  background-color: rgb(20, 193, 220);
+  left: 0;
+  transform: scaleX(0);
+  transition: all 0.5s;
+}
+
+nav ul li a::before {
+  top: 0;
+  transform-origin: right;
+}
+nav ul li a::after {
+  bottom: 0;
+  transform-origin: left;
+}
+
+.overlay {
+  background-color: rgba(77, 77, 77, 0.507);
+  position: fixed;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  position: fixed;
+  transition: opacity 650ms;
+  transform: scale(0);
+  opacity: 0;
+  display: none;
+}
+
+nav ul li a:hover::before,
+nav ul li a:hover::after {
+  transform: scaleX(1);
+}
+
+@keyframes slideIn {
+  from {
+    /* transform: translateX(50%); */
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
 .nav-link1 {
-  color: rgb(246, 250, 251);
-  text-shadow: 1px 1px 2px rgb(206, 206, 206);
-  animation: color-cycle 5s infinite ease-in-out;
-  text-transform: uppercase;
-  color: rgb(241, 163, 104);
-  font-weight: bold;
-  transition: all 0.3s;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
-    sans-serif "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-}
-.nav-link1:hover {
   color: rgb(219, 114, 15);
-  border: 1px solid lightgrey;
-  border-radius: 5px;
-  background-color: lightgrey;
-  padding: 5px;
 }
-.nav-link2,
-.nav-link3 {
-  color: rgb(246, 250, 251);
-  text-shadow: 2px 2px 5px rgb(206, 206, 206);
-  animation: color-cycle 5s infinite ease-in-out;
-  text-transform: uppercase;
-  color: rgb(255, 255, 255);
-  font-weight: bold;
-  margin: 0 auto;
-  transition: all 0.3s;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
-    sans-serif "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-}
-.nav-link2:hover,
-.nav-link3:hover {
-  color: rgb(219, 114, 15);
-  border: 1px solid lightgrey;
-  border-radius: 5px;
-  background-color: lightgrey;
-  padding: 5px;
-  
-}
-.nav-link1:active,
-.nav-link2:active,
-.nav-link3:active {
-  color:skyblue;
-  background-color: lightgray;
-  text-decoration: underline;
-}
+
 main {
   position: relative;
   display: flex;
@@ -152,17 +209,7 @@ td {
   padding: 0.6rem;
 }
 
-@media only screen and (max-width: 800px) {
-  .nav-link1:hover,
-  .nav-link2:hover,
-  .nav-link3:hover {
-    color: rgb(219, 114, 15);
-    border: 1px solid lightgrey;
-    border-radius: 5px;
-    background-color: lightgrey;
-    padding: 5px;
-  }
-
+@media only screen and (max-width: 700px) {
   table {
     position: absolute;
     text-align: center;
@@ -182,15 +229,7 @@ td {
     padding: 0px;
     opacity: 0.7;
   }
-  main {
-    height: 90vh;
-  }
-  a {
-    margin: 0 auto;
-    text-align: center;
-    justify-content: center !important;
-    align-items: space-between !important;
-  }
+
   main {
     position: relative;
     display: flex;
@@ -203,6 +242,115 @@ td {
     align-items: center;
     justify-content: center;
     margin: 0 auto;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  main {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 90vh;
+    top: 0;
+    bottom: 0;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+  }
+  footer {
+    position: sticky;
+    display: flex;
+    width: 100%;
+    background-color: rgb(0, 0, 0);
+    padding: 1rem;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    bottom: 0px !important;
+  }
+  footer a {
+    position: absolute;
+    color: rgb(223, 117, 18);
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    filter: brightness(0.9) grayscale(0.1);
+    animation: banner-change 15s infinite ease-in-out;
+  }
+  footer a:hover {
+    color: white;
+    filter: brightness(0.9) grayscale(0.3);
+    animation: banner-change 15s infinite ease-in-out;
+    font-weight: bold;
+  }
+}
+@media only screen and (max-width: 900px) {
+  footer {
+    position: sticky;
+    display: flex;
+    width: 100%;
+    background-color: rgb(0, 0, 0);
+    padding: 1rem;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    bottom: 0px !important;
+  }
+  footer a {
+    position: absolute;
+    color: rgb(223, 117, 18);
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    filter: brightness(0.9) grayscale(0.1);
+    animation: banner-change 15s infinite ease-in-out;
+  }
+  footer a:hover {
+    color: white;
+    filter: brightness(0.9) grayscale(0.3);
+    animation: banner-change 15s infinite ease-in-out;
+    font-weight: bold;
+  }
+  table {
+    position: absolute;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 60px;
+    margin-bottom: 20px !important;
+    overflow: hidden;
+    width: 90%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 40% !important;
+    background-color: rgb(225, 216, 194);
+    border-radius: 5px;
+    padding: 0px;
+    opacity: 0.7;
+  }
+
+  main {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 90vh;
+    top: 0;
+    bottom: 0;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+  }
+}
+@media only screen and (max-width: 300px) {
+  nav li {
+    justify-content: center;
+    margin: 0 -10px;
   }
 }
 .bookListTitle {
@@ -252,11 +400,17 @@ form {
   position: absolute;
   width: 30%;
   text-align: center;
-  padding: 0.3rem;
   opacity: 0.7;
   margin: 0 auto;
   top: 50%;
   left: 50%;
+  background-image: url(/public/3.jpg);
+  background-position: center;
+  object-fit: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   transform: translate(-50%, -50%);
 }
 form:hover {
